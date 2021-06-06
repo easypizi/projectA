@@ -10,6 +10,14 @@ block("page-index").content()(() => {
           },
           content: [
             {
+              elem: "cat",
+              content: [
+                {
+                  html: '<div class="cat"><div class="ear ear--left"></div><div class="ear ear--right"></div><div class="face"><div class="eye eye--left"><div class="eye-pupil"></div></div><div class="eye eye--right"><div class="eye-pupil"></div></div><div class="muzzle"></div></div></div>',
+                },
+              ],
+            },
+            {
               elem: "title",
               content: "Полная Котавасия",
             },
@@ -41,7 +49,6 @@ block("page-index").content()(() => {
               elem: "background",
               elemMods: {
                 room: true,
-                bathroom: false,
                 office: false,
                 street: false,
               },
@@ -53,15 +60,14 @@ block("page-index").content()(() => {
                 cat: false,
                 ivan: false,
                 astafa: false,
-
                 sasha: false,
+
                 sad: false,
                 surprise: false,
                 angry: false,
                 smile: false,
 
-                right: true,
-                left: false,
+                invert: false,
               },
             },
             {
@@ -80,6 +86,9 @@ block("page-index").content()(() => {
                     },
                     {
                       elem: "bubbleSpeech",
+                      elemMods: {
+                        typing: false,
+                      },
                       content: "",
                     },
                   ],
