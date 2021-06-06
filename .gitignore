@@ -1,0 +1,24 @@
+node_modules/
+.DS_Store
+.idea
+.project
+.svn
+npm-debug.log
+package-lock.json
+!.gitignore
+
+static/assets/js/*
+static/assets/css/*
+
+dist/desktop/*
+dist/touch/*
+!dist/touch/.touch.deps.js
+!dist/desktop/.desktop.deps.js
+
+# bem
+.enb/tmp/
+bundles/*.*/*/*
+!bundles/*.bundles/*/*.bemdecl.js
+
+
+

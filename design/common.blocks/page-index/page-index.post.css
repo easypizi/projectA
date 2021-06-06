@@ -1,0 +1,19 @@
+block(page-index) {
+  elem(body) {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    elem(startScreen) {
+      display: none;
+      width: 100%;
+
+      background: black;
+      color: white;
+
+      &.mod(visible) {
+        display: block;
+      }
+    }
+  }
+}
