@@ -3,6 +3,7 @@ block(page-index) {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    position: fixed;
 
     elem(startScreen) {
       display: none;
@@ -10,7 +11,7 @@ block(page-index) {
       height: 100%;
       z-index: 9999999;
 
-      background: #2d1401;
+      background: #000;
       color: white;
 
       &.mod(visible) {
@@ -18,19 +19,21 @@ block(page-index) {
       }
 
       elem(title) {
-        padding-top: 100px;
-        padding-bottom: 50px;
-        text-align: center;
-        font-size: 40px;
+        background: url(/assets/images/logo.png);
+        background-size: cover;
+        width: 300px;
+        height: 130px;
+        margin: 0 auto;
       }
 
       elem(controls) {
         display: flex;
         align-items: center;
         flex-direction: column;
+        margin-top: 40px;
 
         block(button) {
-          margin-bottom: 20px;
+          margin-bottom: 30px;
         }
       }
 
@@ -63,9 +66,37 @@ block(page-index) {
           color: #fff;
           position: absolute;
           padding: 10px;
-          top: 0;
-          left: 0;
-          border: 1ps solid red;
+          top: 10px;
+          left: 10px;
+          border: 3px solid #86634f;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          overflow: hidden;
+
+          &:before {
+            content: "";
+            background: #413448;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+          }
+          &:after {
+            content: "";
+            background: url(/assets/images/undo.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 35px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+          }
         }
 
         elem(bubble) {
@@ -86,16 +117,21 @@ block(page-index) {
             top: -25px;
             right: 10px;
             border: 3px solid #8e8d6e;
-            background: #413448;
+            background: #27645b;
             border-radius: 40px 40px 40px 40px;
             font-weight: bold;
             font-size: 14px;
+
+            &.mod(invert) {
+              right: unset;
+              left: 10px;
+            }
           }
 
           elem(bubbleSpeech) {
-            border: 3px solid #86634f;
             color: #fff;
-            background: #27645b;
+            border: 3px solid #86634f;
+            background: #413448;
             padding: 15px;
             border-radius: 40px 40px 40px 40px;
             font-size: 17px;
@@ -111,9 +147,154 @@ block(page-index) {
         top: 0;
         left: 0;
         background: #000000;
+        background-repeat: no-repeat;
+
+        &.mod(room) {
+          background: url(/assets/images/room.png);
+          background-size: cover;
+          background-position: center;
+        }
+
+        &.mod(office) {
+          background: url(/assets/images/office.jpg);
+          background-size: cover;
+          background-position: center;
+        }
+
+        &.mod(street) {
+          background: url(/assets/images/city.jpg);
+          background-size: cover;
+          background-position: center;
+        }
+
+        &.mod(ending) {
+          background: url(/assets/images/ending.jpg);
+          background-size: cover;
+          background-position: -453px center;
+        }
+
+        &.mod(finish) {
+          background: url(/assets/images/finish.png);
+          background-size: cover;
+          background-position: center;
+        }
       }
 
       elem(character) {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        &.mod(albina-neutral) {
+          background: url(/assets/images/char/albina/neutral.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+        }
+
+        &.mod(albina-smile) {
+          background: url(/assets/images/char/albina/smile.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+        }
+        &.mod(albina-angry) {
+          background: url(/assets/images/char/albina/angry.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+        }
+        &.mod(albina-cry) {
+          background: url(/assets/images/char/albina/cry.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+        }
+        &.mod(albina-surprised) {
+          background: url(/assets/images/char/albina/surprised.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+        }
+
+        &.mod(cat-neutral) {
+          background: url(/assets/images/char/cat/neutral.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+        }
+
+        &.mod(sasha-neutral) {
+          background: url(/assets/images/char/sasha/neutral.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: 50px center;
+        }
+
+        &.mod(sasha-smile) {
+          background: url(/assets/images/char/sasha/smile.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: 50px center;
+        }
+
+        &.mod(sasha-surprised) {
+          background: url(/assets/images/char/sasha/surprised.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: 50px center;
+        }
+
+        &.mod(astafa-neutral) {
+          background: url(/assets/images/char/astafa/neutral.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: 50px center;
+        }
+
+        &.mod(astafa-smile) {
+          background: url(/assets/images/char/astafa/smile.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: 50px center;
+        }
+
+        &.mod(astafa-surprised) {
+          background: url(/assets/images/char/astafa/surprised.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: 50px center;
+        }
+
+        &.mod(ivan-neutral) {
+          background: url(/assets/images/char/ivan/neutral.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+        }
+
+        &.mod(ivan-cry) {
+          background: url(/assets/images/char/ivan/cry.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+        }
+
+        &.mod(ivan-smile) {
+          background: url(/assets/images/char/ivan/smile.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+        }
+
+        &.mod(ivan-surprised) {
+          background: url(/assets/images/char/ivan/surprised.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+        }
       }
     }
   }
@@ -149,7 +330,7 @@ block(page-index) {
     height: 10%;
     width: 5%;
     border-radius: 50%;
-    background: #2d1401;
+    background: #000;
   }
 
   &::after {
@@ -191,7 +372,7 @@ block(page-index) {
   position: absolute;
   height: 100%;
   width: 100%;
-  background: #2d1401;
+  background: #000;
   border-radius: 50%;
 }
 
@@ -211,7 +392,7 @@ block(page-index) {
     height: 0;
     width: 100%;
     border-radius: 0 0 50% 50% / 0 0 40% 40%;
-    background: #2d1401;
+    background: #000;
     animation: blink 4s infinite ease-in;
   }
 
@@ -247,7 +428,7 @@ block(page-index) {
   top: 25%;
   height: 50%;
   width: 20%;
-  background: #2d1401;
+  background: #000;
   border-radius: 50%;
   animation: look-around 4s infinite;
 

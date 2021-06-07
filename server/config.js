@@ -1,6 +1,6 @@
 module.exports = {
   site: {
-    title: "Cyfrology",
+    title: "KotoBASYA",
     meta: {
       description: "",
     },

@@ -19,7 +19,6 @@ block("page-index").content()(() => {
             },
             {
               elem: "title",
-              content: "Полная Котавасия",
             },
             {
               elem: "controls",
@@ -50,44 +49,21 @@ block("page-index").content()(() => {
           content: [
             {
               elem: "background",
-              elemMods: {
-                room: true,
-                office: false,
-                street: false,
-              },
             },
             {
               elem: "character",
-              elemMods: {
-                albina: true,
-                cat: false,
-                ivan: false,
-                astafa: false,
-                sasha: false,
-
-                sad: false,
-                surprise: false,
-                angry: false,
-                smile: false,
-
-                invert: false,
-              },
             },
             {
               elem: "HUD",
               content: [
                 {
                   elem: "back",
-                  content: "назад",
                 },
                 {
                   elem: "bubble",
                   content: [
                     {
                       elem: "bubbleSpeech",
-                      elemMods: {
-                        typing: false,
-                      },
                       content: "",
                     },
                     {
