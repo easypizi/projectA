@@ -21,6 +21,12 @@
   },
   {
     tech: "js",
-    shouldDeps: [],
+    shouldDeps: [
+      {
+        block: "page-index",
+        elem: "bubble",
+        tech: "bemhtml",
+      },
+    ],
   },
 ];

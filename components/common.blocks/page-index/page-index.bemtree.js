@@ -44,6 +44,9 @@ block("page-index").content()(() => {
         },
         {
           elem: "gameScene",
+          elemMods: {
+            visible: false,
+          },
           content: [
             {
               elem: "background",
@@ -81,14 +84,14 @@ block("page-index").content()(() => {
                   elem: "bubble",
                   content: [
                     {
-                      elem: "bubbleName",
-                      content: "",
-                    },
-                    {
                       elem: "bubbleSpeech",
                       elemMods: {
                         typing: false,
                       },
+                      content: "",
+                    },
+                    {
+                      elem: "bubbleName",
                       content: "",
                     },
                   ],

@@ -1,36 +1,26 @@
 modules.define(
   "page-index",
-  ["i-bem-dom", "BEMHTML", "jquery"],
+  ["i-bem-dom", "BEMHTML", "button"],
 
-  function (provide, bemDom, BEMHTML, $) {
+  function (provide, bemDom, BEMHTML, Button) {
     provide(
       bemDom.declBlock(this.name, {
         onSetMod: {
           js: {
             inited: function () {
-              let mock = {
-                text: "",
-                name: "",
-                character: "",
-                emotion: "",
-                background: "",
-                invertedChar: false,
-                nextLocation: "",
-                previousLocation: "",
-                typing: false,
+              this._bubble = this.findChildElem("bubble");
+
+              this.current = {
+                location: "home",
+                scene: 0,
               };
 
-              let ls = localStorage;
-
-              console.log(mock);
-              console.log(ls);
-
-              this.currentScene = {
-                currentLocation: "home",
-                currentScene: 0,
-              };
+              this.isNewGame = true;
+              this.isFinished = false;
 
               // if LS contains saved data, update this.currenLocation
+              // let ls = localStorage;
+              // console.log(ls);
 
               this.data = {
                 home: {
@@ -125,13 +115,13 @@ modules.define(
                     text: "Ваня улыбнулся.",
                     character: "ivan",
                     background: "room",
+                    emotion: "smile",
                   },
                   17: {
                     text: "Все нормально, не переживай… Есть тут один проектик со сложным клиентом, но он уже почти закончен.",
                     character: "ivan",
                     name: "Ваня",
                     background: "room",
-                    emotion: "smile",
                   },
                   18: {
                     text: "Юсик, а ты где? Иди поздравь маму с днем рождения! Юки-чаааан, ааа вот ты где…",
@@ -720,23 +710,194 @@ modules.define(
                     character: "albina",
                     background: "room",
                   },
+                  118: {
+                    text: "Дорогая мама. Если ты читаешь эти строки, значит ты находишься у меня в голове и читаешь мои мысли. Наконец-то это произошло. Ты не представляешь, какая это мука — все понимать, и не мочь ничего ответить. ",
+                    background: "room",
+                  },
+                  119: {
+                    text: "Да, на самом деле я умный кот, и все понимаю. Я помню все выпуски Дудя, знаю, что крысы на экране компа не настоящие и даже не закатываю глаза, когда вы смотрите «Четыре свадьбы». Люди правда такие смешные и странные? Иногда мне кажется, что мы, коты, гораздо умнее вас. ",
+                    background: "room",
+                  },
+                  120: {
+                    text: "Вернемся к делу. Позволь мне объяснить, что происходит. Я задумал это еще год назад. Мне казалось ужасно несправедливым, что на твой день рождения все вокруг говорят тебе приятные слова, а я нет. Все, что я могу — потереться об твою ногу или лизнуть в щеку.",
+                    background: "room",
+                  },
+                  121: {
+                    text: "Поэтому мне пришла в голову гениальная мысль — произвести прибор, который сможет переводить кошачий язык на человеческий. Но у меня лапки. Я знал, что мне нужен человеческий союзник. Поэтому пришлось объяснять идею папе. На то, чтобы он меня понял, понадобилось 11 месяцев (я уже говорил, что люди ужасно непонятливые?)",
+                    background: "room",
+                  },
+                  122: {
+                    text: "Пора было приступать к реализации. Для этого пришлось привлечь твоих подруг — Настю, чтобы она смогла придать моим мыслям оформленный вид и Сашу, чтобы она смогла все это красиво визуализировать. ",
+                    background: "room",
+                  },
+                  123: {
+                    text: "Что я могу сказать... Работать с людьми — сложно. Они вечно не могли синхронизироваться и постоянно проебывали дедлайны. Пришлось их пинговать и кусать за ноги или за руки. Только после этого они начинали шевелиться. Возможно, иногда я слишком усердствовал. Кажется, теперь Настя меня немного боится.",
+                    background: "room",
+                  },
+                  124: {
+                    text: "В общем, сегодня был день сдачи проекта, поэтому я так переживал. Даже злился на папу, особенно, когда он отправил курьером записку, что сдаст проект на 2 часа позже. Я слышал, как ребята обсуждали, что я самый тяжелый клиент за все время их работы. Приятно, люблю быть лучшим во всем. Они хоть медленные, но неплохие. Благодаря им я могу сказать тебе, все что хотел.",
+                    background: "room",
+                  },
+                  125: {
+                    text: "Спасибо, что кормишь меня вкусняшками! Мне это очень нравится. Спасибо, что кормишь меня кормом с курицей. Он мне нравится гораздо больше, чем дурацкий корм с лососем. Спасибо, что гладишь меня за ушком. Но можно почаще чесать животик. Даже если кажется, что мне это не нравится, мне это нравится. ",
+                    background: "room",
+                  },
+                  126: {
+                    text: "Спасибо, что говоришь мне, какой я красивый. Я и сам это знаю, но мне нравится, когда это говорят другие. Спасибо, что чистишь мне уши и глаза. Мне это не нравится, но сам я дотуда не достаю.",
+                    background: "room",
+                  },
+                  127: {
+                    text: "Пожелать тебе хотелось бы, чтобы ты не сгоняла меня со стола и выкинула пылесос. А еще поменьше меняйте носки. Мне нравится нюхать ноги (это лучшее, что есть в людях!). Ради этого я даже готов закрывать глаза на то, что вы меня называете футфетишистом. ",
+                    background: "room",
+                  },
+                  128: {
+                    text: "Я знаю, что я приемный, ведь я красивый кот, а вы неказистые люди. Но я безумно этому рад, ведь настоящие родители — не обязательно те, кто родили, а те, кто вырастили и воспитали. Спасибо тебе за заботу и любовь. Я тебя тоже очень люблю, мама!",
+                    background: "room",
+                  },
+                  129: {
+                    text: "А, и еще. Если все-таки решите найти мне работу, запомните — лучше я вступлю в ТикТок Хаус, чем буду менеджерить проекты. Если ты присмотришься, то за время разработки у меня появилось три новых седых волоса.",
+                    background: "room",
+                  },
+                  130: {
+                    text: "Альбина отвела взгляд от экрана. Напротив нее сидел ее довольный сын и слегка потрепанные от котоменеджерства люди.",
+                    character: "cat",
+                    background: "room",
+                  },
+                  131: {
+                    text: "Юки-чан, ты был прав! Вот это — лучший подарок на день рождения!",
+                    character: "albina",
+                    name: "Альбина",
+                    background: "room",
+                    emotion: "smile",
+                  },
                 },
               };
+
+              let startButton = this.findChildBlock({
+                block: Button,
+                modName: "start",
+                modVal: true,
+              });
+
+              let continueButton = this.findChildBlock({
+                block: Button,
+                modName: "continue",
+                modVal: true,
+              });
+
+              let startScreen = this.findChildElem("startScreen");
+              let gameScene = this.findChildElem("gameScene");
+
+              startButton._domEvents().on("click", (e) => {
+                e.stopPropagation();
+                startScreen.delMod("visible");
+                gameScene.setMod("visible");
+                this._updateScreen();
+                this._setNext();
+              });
+
+              continueButton._domEvents().on("click", (e) => {
+                e.stopPropagation();
+                console.log("continue");
+              });
+
+              let activeZone = this.findChildElem("gameScene");
+
+              activeZone._domEvents().on("click", () => {
+                this._updateScreen();
+                this._setNext();
+              });
+
+              let backButton = this.findChildElem("back");
+
+              backButton._domEvents().on("click", (e) => {
+                e.stopPropagation();
+                this._setPrevious();
+                this._updateScreen();
+              });
             },
           },
         },
 
-        // _getVideo: function (number) {
-        //   let video = {
-        //     1: "https://youtu.be/L-nPqbJAHzo",
-        //     2: "https://youtu.be/8kSZTl7u74s",
-        //     5: "https://youtu.be/juexh4ZNziQ",
-        //     6: "https://youtu.be/JmCbnzoCmU8",
-        //     7: "https://youtu.be/RxR37gHUCBA",
-        //   };
+        _setNext: function () {
+          this.current.scene++;
 
-        //   return video[number];
-        // },
+          if (this.current.scene > 131) {
+            this.isFinished = true;
+            this.current.scene = 132;
+            return;
+          }
+
+          if (this.current.scene <= 52) {
+            this.current.location = "home";
+          } else if (this.current.scene <= 78) {
+            this.current.location = "office";
+          } else if (this.current.scene <= 100) {
+            this.current.location = "street";
+          } else if (this.current.scene > 100) {
+            this.current.location = "ending";
+          }
+
+          this.isFinished = false;
+        },
+
+        _setPrevious: function () {
+          this.current.scene--;
+
+          if (this.current.scene < 0) {
+            this.isNewGame = true;
+            this.current.scene = 0;
+            return;
+          }
+
+          if (this.current.scene <= 52) {
+            this.current.location = "home";
+          } else if (this.current.scene <= 78) {
+            this.current.location = "office";
+          } else if (this.current.scene <= 100) {
+            this.current.location = "street";
+          } else if (this.current.scene > 100) {
+            this.current.location = "ending";
+          }
+
+          this.isNewGame = false;
+        },
+
+        _updateScreen: function () {
+          let { location, scene } = this.current;
+
+          let action = this.data[location][scene];
+
+          if (this.isFinished) {
+            // finalScene show
+            return;
+          }
+
+          this._bubble.delMod("animated");
+
+          bemDom.update(
+            this._bubble.domElem,
+            BEMHTML.apply([
+              {
+                block: "page-index",
+                elem: "bubbleSpeech",
+                elemMods: {
+                  typing: true,
+                },
+                content: action.text,
+              },
+              action.name && {
+                block: "page-index",
+                elem: "bubbleName",
+                content: action.name,
+              },
+            ])
+          );
+
+          setTimeout(() => {
+            this._bubble.setMod("animated");
+          }, 100);
+        },
       })
     );
   }
