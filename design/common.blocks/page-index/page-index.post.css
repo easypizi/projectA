@@ -182,117 +182,127 @@ block(page-index) {
 
       elem(character) {
         width: 100%;
-        height: 100%;
+        height: 85%;
         position: absolute;
         bottom: 0;
-        left: 0;
+        right: -70px;
 
         &.mod(albina-neutral) {
           background: url(/assets/images/char/albina/neutral.png);
           background-repeat: no-repeat;
-          background-size: cover;
+          background-size: contain;
           background-position: center;
+          right: unset;
+          left: -70px;
         }
 
         &.mod(albina-smile) {
           background: url(/assets/images/char/albina/smile.png);
           background-repeat: no-repeat;
-          background-size: cover;
+          background-size: contain;
           background-position: center;
+          right: unset;
+          left: -70px;
         }
         &.mod(albina-angry) {
           background: url(/assets/images/char/albina/angry.png);
           background-repeat: no-repeat;
-          background-size: cover;
+          background-size: contain;
           background-position: center;
+          right: unset;
+          left: -70px;
         }
         &.mod(albina-cry) {
           background: url(/assets/images/char/albina/cry.png);
           background-repeat: no-repeat;
-          background-size: cover;
+          background-size: contain;
           background-position: center;
+          right: unset;
+          left: -70px;
         }
         &.mod(albina-surprised) {
           background: url(/assets/images/char/albina/surprised.png);
           background-repeat: no-repeat;
-          background-size: cover;
+          background-size: contain;
           background-position: center;
+          right: unset;
+          left: -70px;
         }
 
         &.mod(cat-neutral) {
           background: url(/assets/images/char/cat/neutral.png);
           background-repeat: no-repeat;
-          background-size: cover;
+          background-size: contain;
           background-position: center;
         }
 
         &.mod(sasha-neutral) {
           background: url(/assets/images/char/sasha/neutral.png);
           background-repeat: no-repeat;
-          background-size: cover;
+          background-size: contain;
           background-position: 50px center;
         }
 
         &.mod(sasha-smile) {
           background: url(/assets/images/char/sasha/smile.png);
           background-repeat: no-repeat;
-          background-size: cover;
+          background-size: contain;
           background-position: 50px center;
         }
 
         &.mod(sasha-surprised) {
           background: url(/assets/images/char/sasha/surprised.png);
           background-repeat: no-repeat;
-          background-size: cover;
+          background-size: contain;
           background-position: 50px center;
         }
 
         &.mod(astafa-neutral) {
           background: url(/assets/images/char/astafa/neutral.png);
           background-repeat: no-repeat;
-          background-size: cover;
+          background-size: contain;
           background-position: 50px center;
         }
 
         &.mod(astafa-smile) {
           background: url(/assets/images/char/astafa/smile.png);
           background-repeat: no-repeat;
-          background-size: cover;
+          background-size: contain;
           background-position: 50px center;
         }
 
         &.mod(astafa-surprised) {
           background: url(/assets/images/char/astafa/surprised.png);
           background-repeat: no-repeat;
-          background-size: cover;
+          background-size: contain;
           background-position: 50px center;
         }
 
         &.mod(ivan-neutral) {
           background: url(/assets/images/char/ivan/neutral.png);
           background-repeat: no-repeat;
-          background-size: cover;
+          background-size: contain;
           background-position: center;
         }
 
         &.mod(ivan-cry) {
           background: url(/assets/images/char/ivan/cry.png);
           background-repeat: no-repeat;
-          background-size: cover;
+          background-size: contain;
           background-position: center;
         }
 
         &.mod(ivan-smile) {
           background: url(/assets/images/char/ivan/smile.png);
           background-repeat: no-repeat;
-          background-size: cover;
+          background-size: contain;
           background-position: center;
         }
 
         &.mod(ivan-surprised) {
           background: url(/assets/images/char/ivan/surprised.png);
           background-repeat: no-repeat;
-          background-size: cover;
+          background-size: contain;
           background-position: center;
         }
       }
